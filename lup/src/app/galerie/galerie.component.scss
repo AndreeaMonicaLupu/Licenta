@@ -1,0 +1,26 @@
+
+.play-container {
+    padding: 5%;
+    margin-top: 5%;
+    background-color: rgb( 240, 248, 255);
+    border: 3px solid rgb(  240, 248, 255);
+
+    h1{
+        text-align: center;
+    }
+}
+
+.img-button{
+    display: block;
+    height: 45%;
+    cursor: pointer;
+    &:hover {
+        background: darken(white, 30%);
+    }
+}
+
+.linie{
+    border-bottom: 1px solid rgb(155, 147, 147);
+    margin : 2% 25%;
+}
+

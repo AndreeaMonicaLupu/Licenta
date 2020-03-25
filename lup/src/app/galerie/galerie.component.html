@@ -1,0 +1,71 @@
+<div class="play-container">
+    <mat-grid-list cols="6" rowHeight ="2:1,5">
+        <mat-grid-tile class="img-button">
+            <span (click)="Alege_Categorie(1)"  ><img src="../../assets/images/galerie/PicturiPanza.png" width=100% height=100%> </span> 
+        </mat-grid-tile>
+
+        <mat-grid-tile class="img-button">
+            <span (click)="Alege_Categorie(2)"><img src="../../assets/images/galerie/PicturiPerete.png" width=100% height=100%> </span>
+        </mat-grid-tile>
+
+        <mat-grid-tile class="img-button">
+            <span (click)="Alege_Categorie(3)"><img src="../../assets/images/galerie/PicturiCani.png" width=100% height=100%> </span>
+        </mat-grid-tile>
+
+        <mat-grid-tile class="img-button">
+            <span (click)="Alege_Categorie(4)"><img src="../../assets/images/galerie/felicitari.png" width=100% height=100%> </span> 
+        </mat-grid-tile>
+
+        <mat-grid-tile class="img-button">
+            <span (click)="Alege_Categorie(5)"><img src="../../assets/images/galerie/martisor.png" width=100% height=100%> </span>
+        </mat-grid-tile>
+
+        <mat-grid-tile class="img-button">
+            <span (click)="Alege_Categorie(6)"><img src="../../assets/images/galerie/meniu.png" width=100% height=100%> </span>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+<br><br>
+
+<p class="linie"></p>
+
+<h1>{{title}}</h1>
+
+<p class="linie"></p>
+
+
+<ng-template [ngIf]="nr_categorie==1" >
+    <app-picturi-panza></app-picturi-panza>
+</ng-template>
+
+<ng-template [ngIf]="nr_categorie==2">
+    <app-picturi-perete></app-picturi-perete>
+</ng-template>
+
+<ng-template [ngIf]="nr_categorie==3" >
+    <app-picturi-cani></app-picturi-cani>
+</ng-template>
+
+<ng-template [ngIf]="nr_categorie==4">
+    <app-felicitari></app-felicitari>
+</ng-template>
+
+<ng-template [ngIf]="nr_categorie==5" >
+    <app-martisoare></app-martisoare>
+</ng-template>
+
+<ng-template [ngIf]="nr_categorie==6">
+    <app-meniuri></app-meniuri>
+</ng-template>
+</div>
+
+<div class="footer">
+<h2><img src="../assets/images/logo.png" height="200"> <br>
+
+  <img src="../../assets/images/mail.ico" height="30">  andreea.lupu@ulbsibiu.ro
+  <img src="../../assets/images/phone.ico" height="30">  0740241423 
+    <br>
+  <img src="../../assets/images/instagram.png" height="30">  lupulcreativ 
+  <img src="../../assets/images/facebook.png" height="30">  Lupul Creativ 
+</h2>
+</div>
