@@ -6,8 +6,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatInputModule} from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card'
-import {MatExpansionModule} from '@angular/material/expansion'
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatListModule} from '@angular/material/list';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,7 @@ import { PicturiCaniComponent } from './picturi-cani/picturi-cani.component';
 import { FelicitariComponent } from './felicitari/felicitari.component';
 import { MartisoareComponent } from './martisoare/martisoare.component';
 import { MeniuriComponent } from './meniuri/meniuri.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { MeniuriComponent } from './meniuri/meniuri.component';
     MatGridListModule,
     MatInputModule,
     MatCardModule,
-    MatExpansionModule
+    MatExpansionModule,
+    HttpClientModule,
+    MatListModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

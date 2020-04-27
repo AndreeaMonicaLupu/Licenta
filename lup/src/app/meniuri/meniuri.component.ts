@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Picturi} from '../picturi';
+import { Pictura } from 'src/shared/pictura';
+import { Service } from 'src/shared/service';
 
 @Component({
   selector: 'app-meniuri',
@@ -8,17 +9,21 @@ import {Picturi} from '../picturi';
 })
 export class MeniuriComponent implements OnInit {
 
-  lista_picturi = pictura;
+  pictura: Pictura[];
+  categorie: number[];
 
-  constructor() { }
+  
+  constructor(private service:Service) {
+    this.service.getPictura('6').subscribe(res => {
+      this.pictura = res;
+    },
+      err => {
+        console.log(err);
+      })
+
+   }
 
   ngOnInit(): void {
   } 
 
 }
-
-export const pictura : Picturi[] =[
-  { id: 1, name: 'Meniu' },
-  { id: 2, name: 'Meniu' },
-  { id: 3, name: 'Meniu' }
-];

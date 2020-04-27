@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { Interconectare } from '../interconectare.service';
 import { Subscription } from 'rxjs';
+import { Pictura } from 'src/shared/pictura';
+import { Service } from 'src/shared/service';
 
 @Component({
   selector: 'app-galerie',
@@ -14,12 +16,13 @@ export class GalerieComponent implements OnInit {
   Subscription_nr_cat: Subscription;
   galerie="categorii";
   title = 'Galerie';
-  constructor( private ServiciuComunicare: Interconectare ) { 
+
+  constructor( private ServiciuComunicare: Interconectare ) { }
     
-  }
 
   ngOnInit(): void {
     this.InitializeSubscription();
+
   }
   
   InitializeSubscription(): number{
