@@ -12,9 +12,10 @@
               <p> <b>Dimensiune: </b> {{pictura.dimensiune}} cm </p>
               <p> <b>Pret: </b> {{pictura.pret}} RON </p>
           </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>LIKE</button>
-            <button mat-button>Comanda</button>
+          <mat-card-actions class="dreapta">
+            <button mat-button (click)="Like(pictura.id_pictura)">
+              <img src="../../assets/images/like.png">  
+            </button>
           </mat-card-actions>
           <mat-card-footer>
             <p></p>

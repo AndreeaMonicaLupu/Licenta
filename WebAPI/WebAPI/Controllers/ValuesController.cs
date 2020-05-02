@@ -21,13 +21,28 @@ namespace WebAPI.Controllers
         {
             return service.GetPictura(Convert.ToInt32(id_categorie));
         }
+        [HttpGet]
+        [Route("{username}/{parola}")] 
+        public ActionResult<User> Get(string username, string parola)
+        {
+            return service.GetUser(username, parola);
+        }
 
-        // GET api/values/5
-        // [HttpGet("{id}")]
-        // public ActionResult<string> Get(int id)
-        //{
-        // return "value";
-        // }
+        [HttpGet]
+        [Route("{username}/{parola}/{mail}")]
+        public ActionResult<User> PostUser(string username, string parola, string mail)
+        {
+            if(mail == "null")
+                return service.GetUser(username, parola);
+            return service.PostUser(username, parola, mail);
+        }
+
+        [HttpPost]
+        [Route("{id_user}/{id_pictura}/{id_categorie}")]
+        public ActionResult<List<User>> PostLikes(int id_user, int id_pictura, int id_categorie)
+        {
+            return service.PostLikes(id_user, id_pictura, id_categorie);
+        }
 
         // POST api/values
         [HttpPost]

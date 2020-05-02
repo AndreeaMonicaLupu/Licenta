@@ -1,54 +1,66 @@
+
 <div class="play-container">
-   
-    <mat-grid-list cols="2" rowHeight="1:1">
-      <mat-grid-tile>
-          <form class="example-form">
-              <h1 class="heading"> Conecteaza-te aici!</h1>
-              
-              <mat-form-field class="example-full-width">
-                
-                <mat-label><img src="../../assets/images/login.jpg" height="30px">  Username </mat-label>
-                <input matInput placeholder="" >
-              </mat-form-field>
-              
-      <mat-form-field class="example-full-width">
-          <mat-label><img src="../../assets/images/password.png" height="30px">  Parola </mat-label>
-          <input matInput placeholder="" >
+ 
+<table  class ="example-full-width">
+  <tr>
+    <td>
+      <form class="example-form">
+        <h1 class="titlu">
+          <img src="../../assets/images/login.jpg" height="80px"><br>
+          Conectează-te aici!
+        </h1>
+
+        <mat-label><h1>Username:</h1></mat-label>
+        
+        <mat-form-field class="example-full-width">
+          <mat-label>
+            <input matInput  #login_username required>{{login_username.value}}
+          </mat-label>
         </mat-form-field>
-        <br>
-        <button mat-button class="butonas">Conectare</button>
+        <mat-label><h1>Parola:</h1></mat-label>
+        <mat-form-field class="example-full-width">
+          <mat-label>
+            <input matInput type="password" #login_password>{{login_password.value}}
+          </mat-label>
+        </mat-form-field>
+        <h1>*toate campurile sunt obligatorii!</h1>
+        <button mat-button (click)=Login(login_username.value,login_password.value,null)>CONECTARE!</button>
       </form>
-      </mat-grid-tile>
+    </td>
 
-      <mat-grid-tile>
-          <form class="example-form">
-              <h1 class="heading"> Nu ai cont? Inscrie-te aici!</h1>
-              <mat-form-field class="example-full-width">
-                <mat-label><img src="../../assets/images/mail_black.png" height="20px"> Email</mat-label>
-                <input matInput placeholder="Ex. night@ondark.com">
-              </mat-form-field>
+    <td>
+      <form class="example-form">
+        <h1 class="titlu">
+          <img src="../../assets/images/signup.png" height="80px"><br>
+          Nu ai cont? Înscrie-te aici!</h1>
+        <mat-label><h1>Mail:</h1></mat-label>
+        
+        <mat-form-field class="example-full-width">
+          <mat-label>
+            <input matInput #signup_mail>{{signup_mail.value}}
+          </mat-label>
+        </mat-form-field>
 
-              <mat-form-field class="example-full-width">
-                <mat-label><img src="../../assets/images/login.jpg" height="30px"> Username</mat-label>
-                <input matInput placeholder="Ex. NightOnDark">
-              </mat-form-field>
-
-              <mat-form-field class="example-full-width">
-                  <mat-label><img src="../../assets/images/password.png" height="30px"> Password</mat-label>
-                  <input matInput placeholder="">
-                </mat-form-field>
-
-                <mat-form-field class="example-full-width">
-                  <mat-label><img src="../../assets/images/check.png" height="30px"> Confirm password!</mat-label>
-                  <input matInput placeholder="">
-                </mat-form-field>
-              <br>
-              <button mat-button class="butonas"> Inscriere </button>
-            </form>
-      </mat-grid-tile>
-    </mat-grid-list>
-
-</div>
+        <mat-label><h1>Username:</h1></mat-label>
+        
+        <mat-form-field class="example-full-width">
+          <mat-label>
+            <input matInput #signup_username>{{signup_username.value}}
+          </mat-label>
+        </mat-form-field>
+        <mat-label><h1>Parola:</h1></mat-label>
+        <mat-form-field class="example-full-width">
+          <mat-label>
+            <input matInput type="password" #signup_password>{{signup_password.value}}
+          </mat-label>
+        </mat-form-field>
+        <h1>*toate campurile sunt obligatorii!</h1>
+        <button mat-button (click)=Login(signup_username.value,signup_password.value,signup_mail.value)>ÎNSCRIERE!</button>
+      </form>
+    </td>
+  </tr>
+</table>
+  </div>
 
 <div class="footer">
 <h2><img src="../assets/images/logo.png" height="200"> <br>

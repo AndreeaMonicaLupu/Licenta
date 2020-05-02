@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-
-import { Interconectare } from './interconectare.service';
+import { Component, AfterViewInit, DoCheck} from '@angular/core';
+import { DataService } from 'src/shared/data.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +8,39 @@ import { Interconectare } from './interconectare.service';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements DoCheck {
   title = 'LupulCreativ';
-  
-  constructor(private ServiciuComunicare: Interconectare){
+  tip_login: string;
+  id_loggedin:number;
+  cale="/";
+
+  constructor(private _dataservice:DataService, private toastr:ToastrService){
 
   }
 
-  MetodaClick(numar: number) : void{
+  ngDoCheck() {
+    
+    this._dataservice.sharedId.subscribe(id_loggedin => 
+    this.id_loggedin = id_loggedin);
 
-    this.ServiciuComunicare.metoda(numar);
-
+    if(this.id_loggedin == 0)
+    {
+      this.tip_login = 'Login';
+      this.cale="/login";
+    }
+    else
+    {
+      this.tip_login='Logout';
+      this.cale = "";
+     
+    }
+    
   }
 
+  Logout(){
+    this._dataservice.nextId(0);
 
+    if(this.tip_login=='Logout')
+      this.toastr.warning('Te-ai deconectat', 'Pe data viitoare!');
+  }
 }

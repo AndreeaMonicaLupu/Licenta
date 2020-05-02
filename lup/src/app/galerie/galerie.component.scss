@@ -24,3 +24,18 @@
     margin : 2% 25%;
 }
 
+.example-form {
+    width: 90%;
+    font-size: large;
+    margin: 5%;
+    background-color: transparentize($color: rgb(56, 162, 173), $amount: 0.8);
+}
+  
+.example-full-width {
+    width: 90%;
+}
+.mat-button{
+    background-color:transparentize($color: rgb(56, 162, 173), $amount: 0.3);
+    color: white;
+    font-size: large;
+}

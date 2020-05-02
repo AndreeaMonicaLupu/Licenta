@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Interconectare } from '../interconectare.service';
 import { Subscription } from 'rxjs';
-import { Pictura } from 'src/shared/pictura';
-import { Service } from 'src/shared/service';
+import { DataService } from 'src/shared/data.service';
+import { GalerieService } from 'src/shared/categorie.service';
 
 @Component({
   selector: 'app-galerie',
@@ -13,35 +12,24 @@ import { Service } from 'src/shared/service';
 export class GalerieComponent implements OnInit {
 
   nr_categorie: number=0;
-  Subscription_nr_cat: Subscription;
+  id_loggedin: number;
   galerie="categorii";
-  title = 'Galerie';
+  title :string;
+  comentariu=" ";
 
-  constructor( private ServiciuComunicare: Interconectare ) { }
+  constructor( private _dataservice:DataService, private _galerieservice: GalerieService ) {
+    this._galerieservice.sharedCategorieId.subscribe(id_categorie => this.nr_categorie = id_categorie);
+    this.Alege_Categorie(this.nr_categorie);
+   }
     
 
   ngOnInit(): void {
-    this.InitializeSubscription();
-
-  }
-  
-  InitializeSubscription(): number{
-
-    this.Subscription_nr_cat=this.ServiciuComunicare.nr_cat$.subscribe((valoare: number)=>
-    {  
-      this.nr_categorie = valoare;
-      console.log(this.nr_categorie); 
-      
-    }); 
-    return this.nr_categorie;
+    this._dataservice.sharedId.subscribe(id_loggedin => this.id_loggedin = id_loggedin);
   }
 
-  Metoda(): number{
-    return this.nr_categorie;
-  }
 
   Alege_Categorie(nr_categorie){
-
+    
     this.nr_categorie = nr_categorie;
     
     switch(this.nr_categorie){
@@ -51,7 +39,14 @@ export class GalerieComponent implements OnInit {
       case 4 : this.title ="Felicitari";break;
       case 5 : this.title ="Martisoare"; break;
       case 6 : this.title ="Meniuri"; break;
-      default: this.title =""; break;
+      default: this.title ="Galerie"; break;
     }
+    
   }
+
+  adaugareComenatriu(comentariu: string ){
+    this.comentariu = comentariu;
+    alert(this.comentariu);
+  }
+
 }

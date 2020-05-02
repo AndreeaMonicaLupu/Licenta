@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Serialization;
+using WebAPI.Models;
 
 namespace WebAPI
 {
@@ -32,6 +33,9 @@ namespace WebAPI
                     if (resolver != null)
                         (resolver as DefaultContractResolver).NamingStrategy = null; //sa nu faca conversie litere mair-mici
                 });
+            //---
+            //services.AddDefaultIdentity<User>().AddEntityFrameworkStores<UserContext>();  //AddEntityFrameworkStores<UserContext>();
+            //--
 
             services.AddCors();
         }

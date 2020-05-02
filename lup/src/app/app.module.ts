@@ -25,6 +25,9 @@ import { FelicitariComponent } from './felicitari/felicitari.component';
 import { MartisoareComponent } from './martisoare/martisoare.component';
 import { MeniuriComponent } from './meniuri/meniuri.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -52,10 +55,15 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatExpansionModule,
     HttpClientModule,
-    MatListModule
+    MatListModule,
+    CommonModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot() 
 
   ],
-  providers: [],
+  providers: [
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
