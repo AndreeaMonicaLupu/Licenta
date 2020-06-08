@@ -19,6 +19,10 @@ export class Service
         return this.http.get(this.baseUrl+'values/'+ id_categorie); //controler din bck
     }
 
+    getRecommendation():Observable<any>{
+        return this.http.get(this.baseUrl+'values/'); //controler din bck
+    }
+
     getUser( username: string, parola: string, mail: string):Observable<any>{
 
         let headers = new HttpHeaders();
@@ -32,6 +36,7 @@ export class Service
         headers  = headers.append('responseType', 'json');
         return this.http.post(this.baseUrl + `values/${id_user}/${id_pictura}/${id_categorie}`, {headers: headers});
     }
+
 
 
 }

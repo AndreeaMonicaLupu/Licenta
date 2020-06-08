@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {  Router } from '@angular/router';
 import { DataService } from 'src/shared/data.service';
 import { GalerieService } from 'src/shared/categorie.service';
+import { Pictura } from 'src/shared/pictura';
+import { Service } from 'src/shared/service';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +15,16 @@ export class HomeComponent implements OnInit {
   id_categorie: number;
   cale: string;
 
+  pictura: Pictura[];
   
-  constructor(private router: Router, private _dataservice:DataService, private _galerieservice: GalerieService) {
+  
+  constructor(private router: Router, private _dataservice:DataService, private _galerieservice: GalerieService, private service:Service) {
+    this.service.getRecommendation().subscribe(res => {
+      this.pictura = res;
+    },
+      err => {
+        console.log(err);
+      })
     
   }
 
@@ -34,5 +44,19 @@ export class HomeComponent implements OnInit {
     
   }
 
-  
+  Like(id_pictura: number){
+
+    this.id_categorie =4;
+
+    if(this.id_loggedin == 0){
+      alert("Trebuie sa te conectezi pentru a aprecia pictuirle");
+    }
+     
+    else{
+      console.log('user cu id ', this.id_loggedin, 'liked pictura cu id ', id_pictura );
+
+      this.service.postLikes(this.id_loggedin, id_pictura, this.id_categorie).subscribe();
+
+    }
+  }
 }

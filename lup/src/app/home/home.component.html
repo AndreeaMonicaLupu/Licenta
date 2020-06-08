@@ -5,10 +5,43 @@
         <td> 
             <h1>Vrei un tablou?</h1>
                 <h1>Vrei să faci un cadou special?</h1>
-        <h2>Uite-te în galerie să vezi daca gasești ce îți place, sau poti face o comandă.</h2>
+        <h2>Uite-te în galerie să vezi dacă găsești ce îți place, sau poți face o comandă.</h2>
     </td>
     </tr>
 </table>
+
+
+<div class="play-container" *ngIf="id_loggedin">
+<h1  >Pentru tine</h1>
+<p class="linie"></p>
+
+<mat-grid-list cols="4"  [gutterSize]="'10px'">
+    <mat-grid-tile *ngFor="let pictura of pictura">
+        <mat-card>
+            <mat-card-header>
+              <mat-card-title >{{pictura.denumire}}</mat-card-title>
+            </mat-card-header>
+            
+            <img mat-card-image src={{pictura.cale_poza}} alt="">
+            
+            <mat-card-actions class="dreapta">
+              <button mat-button (click)="Like(pictura.id_pictura)">
+                <img src="../../assets/images/like.png">  
+              </button>
+            </mat-card-actions>
+            <mat-card-footer>
+              <p></p>
+            </mat-card-footer>
+        </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  
+
+</div>
+
+
+
+
 
 <div class="play-container">
     
@@ -41,7 +74,7 @@
         </tr>
         <tr>
             <td class="margine"><img src = "../../assets/images/galerie/martisor.png" alt="poza" width=100%>
-                <h2>Primavara incepe cu un martisor! Dariueste unul creativ!</h2>
+                <h2>Primăvara începe cu un mărțișor! Dariuește unul creativ!</h2>
                 <button mat-button (click)="Redirect_Evenimente('galerie',5)">Vezi mai multe</button>
             </td>
             <td class="margine"><img src = "../../assets/images/galerie/meniu.png" alt="poza" width=100%>
@@ -61,11 +94,11 @@
     <table  class="culoare">
     <tr>
         <td><img src='../../assets/images/expo2.jpg' alt="a doua expozitie"width="70%"></td>
-        <td><h1> A doua expozitie de picturi</h1> 
+        <td><h1> A doua expoziție de picturi</h1> 
            <h2>- 01.06.2019 - <br><br>
-            Participantii au avut parte de o surpriza: o tombola. <br>
-            Toata lumea s-a inscris si a asteptat extragerea, in timp ce au baut o cafea buna si au admirat picturile. <br>
-            Premiul a constat intr-un tablou si o felicitare.<br>
+            Participanții au avut parte de o surpriză: o tombola. <br>
+            Toată lumea s-a înscris și a asteptat extragerea, în timp ce au băut o cafea bună și au admirat picturile. <br>
+            Premiul a constat într-un tablou și o felicitare.<br>
         </h2> 
             <button mat-button (click)="Redirect_Evenimente('evenimente',null)">Vezi mai multe</button>
         </td>
@@ -75,11 +108,11 @@
     <br>
     <table>
     <tr> 
-        <td> <h1> Prima expozitie de picturi</h1> 
+        <td> <h1> Prima expoziție de picturi</h1> 
             <h2>- 13.10.2018 - <br> <br>
-                Familie, prieteni, veselie, arta si cafea. <br>
-                Toate acestea contribuit la o expozitie reusita.<br>
-                Toata lumea a plecat acasa cu zambetul pe buze si cu o amintire frumoasa.
+                Familie, prieteni, veselie, arta și cafea. <br>
+                Toate acestea contribuit la o expozitie reușită.<br>
+                Toata lumea a plecat acasa cu zambetul pe buze și cu o amintire frumoasă.
             </h2>
             <button mat-button (click)="Redirect_Evenimente('evenimente', null)">Vezi mai multe</button>
         </td>

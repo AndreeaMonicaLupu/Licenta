@@ -1,0 +1,16 @@
+//////////////////////////CONEXIUNE
+
+//Flask, angular, python
+https://auth0.com/blog/using-python-flask-and-angular-to-build-modern-apps-part-1/?fbclid=IwAR1QVH0bdy8fzDKIuCHqBB2OpGFWB_sW0Cru7nPrORyrYf9RKtkbMMJKoz8
+
+//.net
+https://www.youtube.com/watch?v=fom80TujpYQ&t=4166s&fbclid=IwAR3j31qS9VYWBns6-8aFvAmQbe9lwxdQKZsKRXS4X7p0nvpcH2rdD2M3FTk
+
+//send from front to back
+https://www.c-sharpcorner.com/article/crud-operation-in-angular-7-using-web-api/
+
+//register
+https://blog.ng-book.com/getting-started-with-angular-and-asp-net-core/#sending-data-to-the-server
+
+
+

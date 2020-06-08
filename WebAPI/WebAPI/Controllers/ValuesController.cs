@@ -29,6 +29,13 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
+        [Route("")]
+        public ActionResult<List<Pictura>> getRecommendation()
+        {
+            return service.getRecommendation();
+        }
+
+        [HttpGet]
         [Route("{username}/{parola}/{mail}")]
         public ActionResult<User> PostUser(string username, string parola, string mail)
         {

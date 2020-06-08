@@ -9,11 +9,15 @@ namespace WebAPI
     public class Service
     {
         ReadCsv reader = new ReadCsv();
-        //ReadCsv readerUser = new ReadCsv();
 
         public List<Pictura>  GetPictura(int id_categorie)//param -> categorie
         {
             return reader.Read().Where(a => a.categorie == id_categorie).ToList(); ;
+        }
+
+        public List<Pictura> getRecommendation()//param -> categorie
+        {
+            return reader.Recommendation();
         }
 
         public User GetUser(string username, string parola)

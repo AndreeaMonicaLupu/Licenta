@@ -16,6 +16,7 @@ export class FelicitariComponent implements OnInit {
   id_categorie: number;
   id_loggedin: number;
 
+
   constructor(private service:Service, private _dataservice:DataService) { 
     this.service.getPictura('4').subscribe(res => {
       this.pictura = res;
@@ -30,6 +31,8 @@ export class FelicitariComponent implements OnInit {
   }
 
   Like(id_pictura: number){
+
+
     this.id_categorie =4;
 
     if(this.id_loggedin == 0){

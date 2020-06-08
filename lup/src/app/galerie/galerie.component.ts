@@ -33,11 +33,11 @@ export class GalerieComponent implements OnInit {
     this.nr_categorie = nr_categorie;
     
     switch(this.nr_categorie){
-      case 1 : this.title ="Picturi pe panza"; break;
+      case 1 : this.title ="Picturi pe panză"; break;
       case 2 : this.title ="Picturi pe perete";break;
-      case 3 : this.title ="Picturi pe cani/ pahare";break;
-      case 4 : this.title ="Felicitari";break;
-      case 5 : this.title ="Martisoare"; break;
+      case 3 : this.title ="Picturi pe căni/ pahare";break;
+      case 4 : this.title ="Felicitări";break;
+      case 5 : this.title ="Mărțișoare"; break;
       case 6 : this.title ="Meniuri"; break;
       default: this.title ="Galerie"; break;
     }

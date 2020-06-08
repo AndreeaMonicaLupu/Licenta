@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         this._dataservice.nextId(this.id_loggedin);//ca sa trimit nou id
   
         if(this.user.username == null){
-          this.toastr.error('Username, paarola gresita, sau nu exista cont');
+          this.toastr.error('Username, parolă greșită, sau nu există cont!');
         }
       else{
         this.toastr.success(this.user.username,'Bine ai venit,');
@@ -63,7 +63,40 @@ export class LoginComponent implements OnInit {
     }
     
   }
+
+  Register(username: string, password: string, mail:string){ 
+
+    console.log("reg:-----", username,"----", password,"----", mail);
+    
+    if(username == "" || password =="" ||mail==""){
+      alert("Atentie!\n Completeaza toate campurile inainte de a te inregistra!");
+    }
+    
+    else{
+      this.service.getUser( username, password, mail ).subscribe(res => {
+        this.user = res;
   
+        //iau id
+        this.id_loggedin = this.user.id_user;
+        this.messageEvent.emit(this.id_loggedin);
+        this._dataservice.nextId(this.id_loggedin);//ca sa trimit nou id
+  
+        if(this.user.username == null){
+          this.toastr.error('Cont deja existent!');
+        }
+      else{
+        this.toastr.success(this.user.username,'Bine ai venit,');
+        this.Redirect_Evenimente('');
+      }
+       
+        
+      },
+        err => {
+          console.log(err);
+        })
+    }
+    
+  }
   Redirect_Evenimente(cale){
     this.cale=cale;
 

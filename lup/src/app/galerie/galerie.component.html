@@ -34,6 +34,9 @@
 
 <p class="linie"></p>
 
+<ng-template [ngIf]="nr_categorie==0" >
+    <h1><img src='../../assets/images/galerie_intro.png' alt="galerie" width="70%" ></h1>
+</ng-template>
 
 <ng-template [ngIf]="nr_categorie==1" >
     <app-picturi-panza></app-picturi-panza>
