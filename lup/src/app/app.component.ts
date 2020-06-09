@@ -32,15 +32,16 @@ export class AppComponent implements DoCheck {
     {
       this.tip_login='Logout';
       this.cale = "";
-     
     }
     
   }
 
   Logout(){
-    this._dataservice.nextId(0);
-
-    if(this.tip_login=='Logout')
+    
+    if(this.tip_login=='Logout'){
+      this._dataservice.nextId(0);
       this.toastr.warning('Te-ai deconectat', 'Pe data viitoare!');
+    }
+     
   }
 }

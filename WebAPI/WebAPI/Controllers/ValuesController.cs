@@ -37,7 +37,7 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("{username}/{parola}/{mail}")]
-        public ActionResult<User> PostUser(string username, string parola, string mail)
+        public ActionResult<User> LoginOrRegister(string username, string parola, string mail)
         {
             if(mail == "null")
                 return service.GetUser(username, parola);

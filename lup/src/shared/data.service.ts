@@ -14,7 +14,6 @@ export class DataService{
 
     nextId(id_loggedin: number) {
         this.id_loggedin.next(id_loggedin);
-        //alert(message);
     }
 
 }
